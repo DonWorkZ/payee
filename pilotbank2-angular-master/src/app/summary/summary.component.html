@@ -1,0 +1,194 @@
+<div style="position: relative">
+  <div class="container-fluid">
+
+    <div class="row" style="margin-top: 0px; position: absolute;">
+      <img class="center-block img-responsive" id="airplane" src="../assets/pictures/airplane.png">
+    </div>
+
+
+    <div class="row" style="margin-top: 0px;">
+      <div class="col-xs-1 col-sm-1"></div>
+
+      <svg id="menu">
+        <a (click)="openNav()">
+          <image x="18%" y="12%" href="../assets/Icons/menu.svg" style="height: 34px"/>
+        </a>
+      </svg>
+
+      <div class="col-xs-10 col-sm-10" style="height: 200px">
+        <div style="margin-left: auto; margin-right: auto;">
+          <div id="account-heading">
+            <span class="bigAndBold" style="padding-left: 0px">Pilot Bank {{ (account$ | async)?.accountType }}
+              Account</span>
+            <br>
+            <span class="biggerAndBold"
+                  style="padding-left: 0px;">${{ formatAccountBalance((account$ | async)?.balance) }}</span>
+
+          </div>
+        </div>
+
+        <div class="col-xs-4 col-sm-4" style="text-align: center">
+          <a href="/transferhomepage">
+            <svg id="svg-icon" style="height: 115px;">
+              <image href="../assets/Icons/transfer.svg" x="48%" y="24%"/>
+            </svg>
+            <svg style="height: 49px;">
+              <text x="140" y="18">Transfer</text>
+            </svg>
+            <br>
+          </a>
+        </div>
+
+        <div class="col-xs-4 col-sm-4" style="text-align: center">
+          <a href="#">
+            <svg id="svg-icon" style="height: 115px;">
+              <image href="../assets/Icons/bill.svg" x="49%" y="24%"/>
+            </svg>
+            <svg style="height: 41px; ">
+              <text x="153" y="10">Pay Bill</text>
+            </svg>
+          </a>
+        </div>
+
+        <div class="col-xs-4 col-sm-4" style="text-align: center">
+          <a routerLink="/transaction" routerLinkActive="active">
+            <svg id="svg-icon" style="height: 116px;">
+              <image id="svg-icon" href="../assets/Icons/notification.svg" x="45%" y="24%"/>
+            </svg>
+            <svg style="height: 49px; ">
+              <text x="122" y="17">Transactions</text>
+            </svg>
+          </a>
+        </div>
+
+        <div class="col-xs-1 col-sm-1"></div>
+
+      </div>
+      <div class="col-xs-1 col-sm-1"></div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-1 col-sm-1"></div>
+
+    <div class="col-xs-6 col-sm-6 bigger">
+
+      <div class="row spacing" style="padding-top: 123px;">
+        <div class="col-sm-7 col-sm-7 bolder">
+          Account Number
+        </div>
+        <div class="col-sm-5 col-sm-5">
+          {{ (account$ | async)?.accountNumber }}
+        </div>
+      </div>
+      <div class="row spacing">
+        <div class="col-sm-7 col-sm-7 bolder">
+          Balance
+        </div>
+        <div class="col-sm-5 col-sm-5">
+          ${{ formatAccountBalance((account$ | async)?.balance) }}
+        </div>
+      </div>
+      <div class="row spacing">
+        <div class="col-sm-7 col-sm-7 bolder">
+          Account Limits
+        </div>
+        <div class="col-sm-5 col-sm-5">
+          <a>View Below ></a>
+        </div>
+      </div>
+      <div class="row spacing">
+        <div class="col-sm-7 col-sm-7 bolder">
+          Account Information
+        </div>
+        <div class="col-sm-5 col-sm-5">
+          <a (click)="showAccountInformation = true">View Below ></a>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-xs-5 col-sm-5 bigger" style="overflow: hidden">
+      <img id="card1" src="../assets/pictures/card3.png">
+      <img id="card2" src="../assets/pictures/card3.png">
+    </div>
+
+  </div>
+
+  <ng-container *ngIf="showAccountInformation">
+  <div class="row">
+    <div class="col-xs-1 col-sm-1"></div>
+    <div class="col-xs-10 col-sm-10">
+      <hr>
+      <span class="heading-span">Account Information</span>
+      <hr>
+
+      <div class="row">
+        <div class="col-xs-1 col-sm-1"></div>
+        <div class="col-sm-5 col-sm-5 zero-left">
+          Bank Name
+        </div>
+        <div class="col-sm-5 col-sm-5 zero-right">
+          <span class="float-right">Pilot Bank</span>
+        </div>
+        <div class="col-xs-1 col-sm-1"></div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-1 col-sm-1"></div>
+        <div class="col-sm-5 col-sm-5 zero-left">
+          Transit Number
+        </div>
+        <div class="col-sm-5 col-sm-5 zero-right">
+          <span class="float-right">12345</span>
+        </div>
+        <div class="col-xs-1 col-sm-1"></div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-1 col-sm-1"></div>
+        <div class="col-sm-5 col-sm-5 zero-left">
+          Institution Number
+        </div>
+        <div class="col-sm-5 col-sm-5 zero-right">
+          <span class="float-right">123</span>
+        </div>
+        <div class="col-xs-1 col-sm-1"></div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-1 col-sm-1"></div>
+        <div class="col-sm-5 col-sm-5 zero-left">
+          Account Number
+        </div>
+        <div class="col-sm-5 col-sm-5 zero-right">
+          <span class="float-right">{{ (account$ | async)?.accountId }}</span>
+        </div>
+        <div class="col-xs-1 col-sm-1"></div>
+      </div>
+
+    </div>
+    <div class="col-xs-1 col-sm-1"></div>
+  </div>
+
+  <br>
+
+  <div class="row">
+    <div class="col-xs-1 col-sm-1"></div>
+    <div class="col-xs-10 col-sm-10">
+      <div class="submit">
+        <button
+          class="btn btn-primary btn-lg btn-block"
+          type="submit">
+          Print Form
+        </button>
+      </div>
+    </div>
+    <div class="col-xs-1 col-sm-1"></div>
+  </div>
+  </ng-container>
+
+  <br>
+  <br>
+  <br>
+
+</div>

@@ -1,0 +1,192 @@
+
+span{
+  font-weight: 400;
+  color: black;
+}
+
+.sub-heading{
+  padding-inline-start: 40px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+hr{
+  border: solid 0px black;
+  border-top-width: 2px;
+  margin-top: 0px;
+  margin-bottom: 2px;
+}
+
+h4{
+  /*padding-left: 2em;*/
+  padding-inline-start: 26px;
+}
+
+li{
+  margin-bottom: 10px;
+  list-style-type:none;
+}
+
+ul{
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+a{
+  color: #090a0c;
+  cursor: pointer;
+}
+
+circle{
+  filter: unset;
+  stroke: black;
+  stroke-width: 10;
+  fill: transparent;
+}
+
+.spacing{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.bottom10{
+  margin-bottom: 10px;
+}
+
+.form-control{
+  border-color: #090a0c;
+  border-radius: 0px;
+  border-width: 2px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.subitem{
+  padding-inline-start: 60px;
+  padding-bottom: 5px;
+  padding-inline-end: 50px;
+  padding-top: 5px;
+}
+.subitem:hover {
+  background-color: #ddd;
+}
+
+.inline{
+  display: inline-flex;
+}
+
+.label-profile{
+  padding-top: 15px;
+  width: 105px;
+  display: table;
+}
+
+.btn{
+  border-radius: 0px;
+  font-size: 20px;
+  margin-top: 18px;
+}
+
+.btn-block{
+  width: 120px;
+  float: right;
+}
+
+.btn-primary{
+  background-color: #dcb94f;
+  border-color: #dcb94f;
+}
+
+.btn-default{
+  background-color: #090a0c;
+  color: white;
+}
+
+select {
+  border-color: rgba(0,0,0,.25);
+  border-radius: 3px;
+  border-width: 1px;
+  width: 105px;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  outline: none;
+  color: black;
+  font-size: 12px;
+}
+
+.select-filter{
+  float: right;
+  width: 140px;
+  margin-right: 10px;
+  height: 27px;
+  margin-top: 5px;
+}
+
+.mat-paginator{
+  color: rgba(0,0,0,.54);
+}
+
+.paginator{
+  color: rgba(0,0,0,.54);
+  font-size: 12px;
+  padding-inline-end: 10px;
+}
+
+input{
+  border-color: rgba(0,0,0,.42);
+  outline: none;
+  border-width: 0px 0px 1px;
+  color: black;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.mat-paginator-icon{
+  fill: rgba(0,0,0,.54);
+}
+
+.mat-icon-button{
+  width: 30px;
+  height: 30px;
+  line-height: 0px;
+}
+
+.glyphicon{
+  color: rgba(0,0,0,0.65);
+  line-height: 25px;
+  padding-right: 8px;
+}
+
+.mat-paginator-outer-container {
+  display: flex;
+}
+
+.mat-paginator-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 8px;
+  flex-wrap: wrap-reverse;
+  width: 100%;
+}
+
+.mat-paginator-page-size {
+  display: flex;
+  align-items: baseline;
+  margin-right: 8px;
+}
+
+.mat-paginator-page-size-label {
+  margin: 0 4px;
+}
+
+.mat-paginator-range-actions {
+  display: flex;
+  align-items: center;
+}

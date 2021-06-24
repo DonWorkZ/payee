@@ -1,0 +1,23 @@
+.submit{
+  text-align: center;
+}
+
+.btn{
+  border-radius: 0px;
+  font-size: x-large;
+}
+
+.btn-block{
+  width: 25%;
+  float: right;
+}
+
+.btn-primary{
+  background-color: #dcb94f;
+  border-color: #dcb94f;
+}
+
+.btn-default{
+  background-color: #090a0c;
+  color: white;
+}

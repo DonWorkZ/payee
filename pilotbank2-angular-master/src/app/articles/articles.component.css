@@ -1,0 +1,25 @@
+h2{
+  text-align: center;
+}
+
+.filled-box{
+  background-color: #c4c4c4;
+  min-height: 18em;
+  min-width: 10%;
+  padding: 10px 10px 10px 10px;
+  margin: 10px 10px 20px 10px;
+}
+
+.border-box{
+  border-style: solid;
+  border-color: black;
+  border-width: thick;
+  min-height: 18em;
+  min-width: 10%;
+}
+
+span{
+  font-size: x-large;
+}
+
+

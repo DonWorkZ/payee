@@ -1,0 +1,40 @@
+.accountType h2{
+    text-align: left;
+}
+
+/*.login-credentials-container{
+    margin-top: 6rem;
+    text-align: left;
+}
+
+.security-question-container h2{
+    text-align: left;
+}*/
+
+.submit{
+    text-align: right;
+}
+
+/*.security-question-container mat-form-field{
+    width: 75%;
+}*/
+
+.btn{
+  border-radius: 0px;
+  font-size: x-large;
+}
+
+.btn-block{
+  width: 25%;
+  float: right;
+}
+
+.btn-primary{
+  background-color: #dcb94f;
+  border-color: #dcb94f;
+}
+
+.btn-default{
+  background-color: #090a0c;
+  color: white;
+}

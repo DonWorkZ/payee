@@ -1,0 +1,37 @@
+<div style="position: relative">
+  <div class="container-fluid">
+    <div class="row" style="margin-top: 0px; position: absolute;">
+      <img class="center-block img-responsive" src="../assets/pictures/airplane.png">
+    </div>
+
+
+    <div class="row" style="margin-top: 0px;">
+      <div class="col-xs-1 col-sm-1"></div>
+      <svg id="menu">
+        <a (click)="openNav()">
+          <image x="18%" y="12%" href="../assets/Icons/menu.svg" style="height: 34px"/>
+        </a>
+      </svg>
+      <div class="col-xs-10 col-sm-10" style="height: 200px;">
+        <div style="background-color: rgba(0,0,0,0.50); margin-left: 45%; width: 160px;">
+          <svg style="position: absolute;">
+            <circle cx="75" cy="65" r="50"/>
+          </svg>
+          <svg>
+            <image href="../assets/Icons/pilot.svg" x="44" y="32"/>
+            <text x="31" y="135">My Profile</text>
+          </svg>
+        </div>
+      </div>
+      <div class="col-xs-1 col-sm-1"></div>
+    </div>
+  </div>
+</div>
+<app-profile-information></app-profile-information>
+
+<app-statements-and-documents></app-statements-and-documents>
+
+<br>
+<br>
+<br>
+<br>

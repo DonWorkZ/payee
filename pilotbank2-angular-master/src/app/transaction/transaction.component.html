@@ -1,0 +1,132 @@
+<div style="position: relative">
+  <div class="container-fluid">
+
+    <div class="row" style="margin-top: 0px; position: absolute;">
+      <img class="center-block img-responsive" src="../assets/pictures/airplane.png">
+    </div>
+
+
+    <div class="row" style="margin-top: 0px;">
+      <div class="col-xs-1 col-sm-1"></div>
+
+      <svg id="menu">
+        <a (click)="openNav()">
+          <image x="18%" y="12%" href="../assets/Icons/menu.svg" style="height: 34px"/>
+        </a>
+      </svg>
+
+      <div class="col-xs-10 col-sm-10" style="height: 200px">
+        <div style="margin-left: auto; margin-right: auto;">
+          <div id="account-heading">
+            <span class="bigAndBold" style="padding-left: 0px">Pilot Bank {{ (account$ | async)?.accountType }}
+              Account</span>
+            <br>
+            <span class="biggerAndBold"
+                  style="padding-left: 0px;">${{ formatAccountBalance((account$ | async)?.balance) }}</span>
+
+          </div>
+        </div>
+
+        <div class="col-xs-4 col-sm-4" style="text-align: center">
+          <a href="/transferhomepage">
+            <svg id="svg-icon" style="height: 115px;">
+              <image href="../assets/Icons/transfer.svg" x="48%" y="24%"/>
+            </svg>
+            <svg style="height: 49px;">
+              <text x="140" y="18">Transfer</text>
+            </svg>
+            <br>
+          </a>
+        </div>
+
+        <div class="col-xs-4 col-sm-4" style="text-align: center">
+          <a href="#">
+            <svg id="svg-icon" style="height: 115px;">
+              <image href="../assets/Icons/bill.svg" x="49%" y="24%"/>
+            </svg>
+            <svg style="height: 41px; ">
+              <text x="153" y="10">Pay Bill</text>
+            </svg>
+          </a>
+        </div>
+
+        <div class="col-xs-4 col-sm-4 margin-svg" style="text-align: center">
+          <a href="/summary">
+            <svg id="svg-icon" style="height: 116px;">
+              <image href="../assets/Icons/notification.svg" x="45%" y="24%"/>
+            </svg>
+            <svg style="height: 49px; ">
+              <text x="135" y="17">Summary</text>
+            </svg>
+          </a>
+        </div>
+        <div class="col-xs-1 col-sm-1"></div>
+
+      </div>
+
+      <div class="col-xs-1 col-sm-1"></div>
+    </div>
+  </div>
+
+  <div class="row" style="height: 15px">
+    <div class="col-xs-1 col-sm-1"></div>
+    <div class="col-xs-10 col-sm-10" style="padding-top: 5px;">
+      <a href="#">
+        <svg id="svg-calendar">
+          <image style="height: 40px;" href="../assets/Icons/calendar.svg" x="0%" y="0%"/>
+        </svg>
+      </a>
+    </div>
+    <div class="col-xs-1 col-sm-1"></div>
+  </div>
+
+  <div style="padding-top: 25px">
+    <ng-container *ngFor="let date of transactionMap | keyvalue: reverseMap">
+      <div class="row" style="margin-top: 20px;">
+        <div class="col-xs-1 col-sm-2"></div>
+        <div class="col-xs-8 col-sm-8">
+          <span>{{date.key | date:'fullDate'}}</span>
+          <hr>
+        </div>
+        <div class="col-xs-1 col-sm-1"></div>
+      </div>
+      <ng-container *ngFor="let transaction of date.value">
+        <div class="row">
+          <div class="col-xs-1 col-sm-2"></div>
+          <div class="col-xs-8 col-sm-8 hover-color">
+            <div class="col-xs-10 col-sm-10">
+              <ul>
+                <li>{{transaction.transactionMemo}} </li>
+              </ul>
+            </div>
+            <div class="col-xs-2 col-sm-2">
+              <ul style="float:right">
+                <li *ngIf="transaction.isPositive===true; else negative"
+                    style="color: #c7a94f"> {{transaction.amount}}</li>
+                <ng-template #negative>
+                  <li> {{transaction.amount}}</li>
+                </ng-template>
+              </ul>
+            </div>
+          </div>
+          <div class="col-xs-1 col-sm-1"></div>
+        </div>
+      </ng-container>
+      <div class="row" style="margin-bottom: 25px;">
+        <div class="col-xs-12 col-sm-12"></div>
+      </div>
+    </ng-container>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-xs-5"></div>
+    <div class="col-xs-6 col-xs-offset-1">
+      <a style="font-size: 20px;">Load More ></a>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+
+</div>
+

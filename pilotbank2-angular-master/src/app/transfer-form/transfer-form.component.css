@@ -1,0 +1,43 @@
+.container-fluid {
+  background-color: #090a0c;
+  margin-bottom: 3%;
+}
+
+ .center {
+    margin: auto;
+    width: 50%;
+    display:flex; 
+    flex-direction:column; 
+    justify-content:center;
+    min-height:50vh;
+  }
+
+  .none {
+    text-decoration: none;
+  }
+
+  .buttons {
+    text-align: center;
+  }
+
+  .btn {
+    border-radius: 0px;
+    font-size: x-large;
+    /*font-max-size: x-large;*/
+  }
+
+  .btn-default {
+    background-color: #090a0c;
+    color: white;
+  }
+
+  .btn-primary {
+    background-color: #dcb94f;
+    border-color: #dcb94f;
+  }
+
+  .row {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+

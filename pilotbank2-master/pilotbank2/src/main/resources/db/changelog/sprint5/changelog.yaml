@@ -1,0 +1,5 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/sprint5/tables.sql
+  - include:
+      file: db/changelog/sprint5/seed_data.sql

@@ -1,0 +1,62 @@
+[
+  {
+    "userId": 2,
+    "username": "J1",
+    "firstName": "Jane",
+    "lastName": "Doe",
+    "email": "aabb@gmail.com",
+    "phoneNumber": null,
+    "role": "CUSTOMER",
+    "isActive": true,
+    "occupation": "Doctor",
+    "industry": null,
+    "title": null,
+    "addressList": [],
+    "income": null,
+    "mainAccount": null,
+    "ownedAccounts": [],
+    "authorizedAccounts": []
+  },
+  {
+    "userId": 3,
+    "username": "Dragons5EVA",
+    "firstName": "Hiccup",
+    "lastName": "Haddock",
+    "email": "hiccup.haddock@gmail.com",
+    "phoneNumber": "111-111-1111",
+    "role": "CUSTOMER",
+    "isActive": true,
+    "occupation": "Dragon Trainer",
+    "industry": "Agriculture",
+    "title": "Mr.",
+    "addressList": [
+      {
+        "addressId": 1,
+        "streetName": "string",
+        "streetNumber": "string",
+        "suiteNumber": "string",
+        "province": "Berk",
+        "city": "Dragontown",
+        "postalCode": "string"
+      }
+    ],
+    "income": null,
+    "mainAccount": {
+      "accountId": 1,
+      "balance": 0,
+      "accountType": "CHECKING",
+      "authorizedCustomers": [],
+      "allTransactions": []
+    },
+    "ownedAccounts": [
+      {
+        "accountId": 1,
+        "balance": 0,
+        "accountType": "CHECKING",
+        "authorizedCustomers": [],
+        "allTransactions": []
+      }
+    ],
+    "authorizedAccounts": []
+  }
+]

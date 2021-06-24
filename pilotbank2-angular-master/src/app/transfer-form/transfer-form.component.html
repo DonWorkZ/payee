@@ -1,0 +1,78 @@
+<!-- <div *ngIf="accountList.length >= 2" class="center"> -->
+  <div class="container-fluid">
+    <div class="row" style="margin-top: 0px">
+      <img class="center-block img-responsive" src="../assets/pictures/airplane.png">
+    </div>
+  </div>
+<div class="center">
+    <form (ngSubmit)="onSubmit()" [formGroup]="transferForm">
+        <div class="form-group">
+          <div *ngIf="showMsg">
+          <p class="alert alert-success">
+            <strong>Transfer Sucessful</strong>
+          </p>
+          </div>
+            <label for="fromAccountId">Withdrawal Account</label>
+            <select
+            type="text"
+            id="fromAccountId"
+            class="form-control"
+            formControlName="fromAccountId"
+            [(ngModel)]="transfer.fromAccountId"
+            >
+                <option *ngFor="let wAcc of accountList" [value]="wAcc.accountId">{{wAcc.accountType}} , max: {{wAcc.balance}}</option>
+            </select>
+         </div>
+
+         <div class="form-group">
+            <label for="toAccountId">Deposit Account</label>
+            <select
+            type="text"
+            id="toAccountId"
+            class="form-control"
+            formControlName="toAccountId"
+            [(ngModel)]="transfer.toAccountId"
+            >
+                <option *ngFor="let dAcc of accountList" [value]="dAcc.accountId">{{dAcc.accountType}}</option>
+            </select>
+         </div>
+
+         <div class="form-group">
+            <label for="transferAmount">Amount to Transfer</label>
+            <input
+            type="number"
+            min="0"
+            id="transferAmount"
+            class="form-control"
+            formControlName="transferAmount"
+            [(ngModel)]="transfer.transferAmount"
+            >
+         </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6" style="display: flex; justify-content: center;">
+              <div style="border-right: 2px solid #dcb94f; padding: 15px; width: fit-content;">
+                <button
+                  class="btn btn-default btn-lg btn-block"
+                  type="button"
+                  style="width: 215px">
+                  Cancel
+                </button>
+              </div>
+              <div style="padding: 15px; width: fit-content;">
+                <button
+                  class="btn btn-primary btn-lg btn-block"
+                  type="submit" style="width: 215px">
+                  Confirm
+                </button>
+              </div>
+            </div>
+            <div class="col-md-3"></div>
+          </div>
+    </form>
+</div>
+<!-- 
+<div *ngIf="accountList.length < 2"class="center">
+    <h1>You don't have enough accounts to transfer money</h1>
+</div>
+ -->

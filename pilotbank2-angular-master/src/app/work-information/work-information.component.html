@@ -1,0 +1,64 @@
+<div class="row">
+  <div class="col-xs-1 col-sm-3"></div>
+  <div class="col-xs-10 col-sm-6">
+    <h5>Work Information</h5>
+  </div>
+  <div class="col-xs-1 col-sm-3"></div>
+</div>
+
+<div class="row">
+  <div class="col-xs-1 col-sm-3"></div>
+    <div class="col-xs-5 col-sm-3">
+      <label for="industry"><span>Industry</span></label>
+      <select
+        required
+        id="industry"
+        name="industry"
+        style="border-radius: 0px"
+        [(ngModel)]="newWorkInfo.industry"
+        (change)="addWorkInformation()"
+        #industry="ngModel">
+        <option value="" disabled selected hidden></option>
+        <option
+          *ngFor="let industry of industries"
+          value="{{industry}}">
+          {{industry}}
+        </option>
+      </select>
+      <br>
+      <span
+        class="error"
+        *ngIf="industry.errors?.required && confirmClicked">
+        Industry Required
+      </span>
+
+      <br>
+
+      <label for="occupation"><span>Occupation</span></label>
+      <select
+        required
+        id="occupation"
+        name="occupation"
+        style="border-radius: 0px"
+        [(ngModel)]="newWorkInfo.occupation"
+        (change)="addWorkInformation()"
+        #occupation="ngModel">
+        <option value="" disabled selected hidden></option>
+        <option
+          *ngFor="let occupation of occupations"
+          value="{{occupation}}">
+          {{occupation}}
+        </option>
+      </select>
+      <br>
+      <span
+        class="error"
+        *ngIf="occupation.errors?.required && confirmClicked" style="float: left">
+        Occupation Required
+      </span>
+
+      <div class="col-xs-5 col-sm-3"></div>
+    </div>
+
+    <div class="col-xs-1 col-sm-3"></div>
+  </div>

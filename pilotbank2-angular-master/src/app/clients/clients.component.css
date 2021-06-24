@@ -1,0 +1,72 @@
+h2 {
+  text-align: center;
+}
+
+.row{
+  max-height: 200px;
+  width: 100%;
+  height: 200px;
+}
+
+img{
+  width: 100%;
+  height: auto;
+}
+
+text{
+  color: #c7a94f;
+  padding-left: 30px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+span{
+  color: #c7a94f;
+  font-size: x-large;
+  display: block;
+}
+
+.quote{
+  font-style: italic;
+  padding-top: 38%;
+}
+
+.client{
+  padding-bottom: 20%;
+}
+
+.glyphicon {
+  color: white;
+  position: relative;
+  top: 43%;
+  font-weight: 100;
+  line-height: 0.5;
+  font-size: 4em;
+}
+
+.carousel-indicators li {
+  background-color: #e5e5e5;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+.carousel-indicators .active {
+  background-color: black;
+}
+
+.carousel-indicators {
+  bottom: -3em;
+  width: 58%;
+}
+
+.carousel-inner {
+  max-height: 400px;
+  background-color: black;
+}
+
+.col-sm-6{
+  background-color: black;
+  height: auto;
+  text-align: center;
+  overflow: auto;
+
+}

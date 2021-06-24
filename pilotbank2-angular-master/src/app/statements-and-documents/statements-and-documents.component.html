@@ -1,0 +1,237 @@
+<div class="row">
+  <div class="col-xs-1 col-sm-2"></div>
+  <div class="col-xs-10 col-sm-8">
+    <hr>
+
+    <div class="col-xs-6 col-sm-6">
+      <h4>Statements and Documents</h4>
+    </div>
+    <div class="col-xs-6 col-sm-6" style="justify-content: flex-end; display: flex;">
+
+      <ng-container *ngIf="selectedFilter=='Date'">
+        <select
+          required
+          id="month"
+          name="month"
+          [(ngModel)]="month"
+          (change)="filter()"
+          class="select-filter"
+          style="width: 87px">
+          <option value="" disabled selected hidden></option>
+          <option
+            *ngFor="let month of months"
+            value="{{month}}">
+            {{month}}
+          </option>
+        </select>
+        <select
+          required
+          id="year"
+          name="year"
+          [(ngModel)]="year"
+          (change)="filter()"
+          class="select-filter"
+          style="width: 60px">
+          <option value="" disabled selected hidden></option>
+          <option
+            *ngFor="let year of years"
+            value="{{year}}">
+            {{year}}
+          </option>
+        </select>
+      </ng-container>
+
+      <ng-container *ngIf="selectedFilter=='Account'">
+        <select
+          required
+          id="account"
+          name="account"
+          [(ngModel)]="account"
+          (change)="filter()"
+          class="select-filter">
+          <option value="" disabled selected hidden></option>
+          <option
+            *ngFor="let account of accounts | keyvalue"
+            value="{{account.key}}">
+            {{account.value}}
+          </option>
+        </select>
+      </ng-container>
+
+      <ng-container *ngIf="selectedFilter=='Account Type'">
+        <select
+          required
+          id="accountType"
+          name="accountType"
+          [(ngModel)]="accountType"
+          (change)="filter()"
+          class="select-filter">
+          <option value="" disabled selected hidden></option>
+          <option
+            *ngFor="let accountType of accountTypes"
+            value="{{accountType}}">
+            {{accountType}}
+          </option>
+        </select>
+        <br>
+      </ng-container>
+      <svg viewBox="0 0 300 350" style="float: right; height: 35px">
+        <a href="#">
+          <circle cx="50%" cy="53%" r="110"/>
+          <polyline points="100,140 150,190 200,140"
+                    style="fill:none;stroke:black;stroke-width:10"/>
+          <polyline points="100,200 150,250 200,200"
+                    style="fill:none;stroke:black;stroke-width:10"/>
+        </a>
+      </svg>
+    </div>
+  </div>
+
+  <div class="col-xs-1 col-sm-2"></div>
+</div>
+
+<div class="row">
+  <div class="col-xs-1 col-sm-2"></div>
+  <div class="col-xs-10 col-sm-8">
+    <hr class="bottom10">
+  </div>
+
+  <div class="col-xs-1 col-sm-2"></div>
+</div>
+
+<!--<ng-container *ngFor="let account of statements">
+  <ng-container *ngFor="let statement of account.transactions">
+  <div class="row">
+    <div class="col-xs-1 col-sm-2"></div>
+    <div class="col-xs-10 col-sm-8 subitem">
+      <div class="col-xs-8 col-xs-8">
+        <span>{{account.accountType}} Account</span>
+      </div>
+      <div class="col-xs-4 col-xs-4" style="text-align: center;">
+        <span>
+          {{statement.startDate | date: 'd MMM y' }} - {{statement.endDate | date: 'd MMM y' }}
+        </span>
+      </div>
+    </div>
+    <div class="col-xs-1 col-sm-2"></div>
+  </div>
+  </ng-container>
+</ng-container>-->
+
+<ng-container *ngFor="let statement of filteredPaginatedStatements; let i=index;">
+  <div class="row">
+    <div class="col-xs-1 col-sm-2"></div>
+    <div class="col-xs-10 col-sm-8 subitem">
+      <div class="col-xs-8 col-xs-8">
+        <span>{{statement.accountType}} Account</span>
+      </div>
+      <div class="col-xs-4 col-xs-4" style="text-align: center;">
+        <span>
+          {{statement.startDate | date: 'd MMM y' }} - {{statement.endDate | date: 'd MMM y' }}
+        </span>
+      </div>
+    </div>
+    <div class="col-xs-1 col-sm-2"></div>
+  </div>
+</ng-container>
+
+
+<div class="row">
+  <div class="col-xs-1 col-sm-2"></div>
+  <div class="col-xs-10 col-sm-8">
+    <hr style="margin: 15px 35px 0px; border-color: #aaaaaa">
+    <!--<mat-paginator
+      [length]="allStatements.length"
+      [pageSize]="statementsPerPage"
+      [pageSizeOptions]="[5, 10, 25, 100]"
+      (page)="onPageChange($event)">
+    </mat-paginator>-->
+  </div>
+  <div class="col-xs-1 col-sm-2"></div>
+</div>
+
+<div class="row">
+  <div class="col-xs-1 col-sm-2"></div>
+  <div class="col-xs-10 col-sm-8">
+    <div class="mat-paginator-outer-container">
+      <div style="position: absolute; line-height: 60px;">
+        <span class="paginator" style="padding-inline-start: 50px">Showing {{indexStart}} – {{indexEnd}}
+          of {{filteredStatements.length}}</span>
+      </div>
+      <div class="mat-paginator-container">
+
+        <div class="mat-paginator-page-size ng-star-inserted">
+          <div class="mat-paginator-page-size-label paginator">
+            Items per page:
+            <input
+              [(ngModel)]="statementsPerPage"
+              value="{{statementsPerPage}}"
+              type="number"
+              (keyup.enter)="paginate()"
+              (blur)="paginate()"
+              style="width: 30px;">
+          </div>
+          <div class="mat-paginator-range-actions paginator">
+            <div style="padding-right: 10px">
+              <span class="glyphicon glyphicon-filter"></span>
+              <select
+                required
+                id="filter"
+                name="filter"
+                [(ngModel)]="selectedFilter"
+                (change)="filter()">
+                <option value="" disabled selected hidden></option>
+                <option
+                  *ngFor="let filter of filters"
+                  value="{{filter}}">
+                  {{filter}}
+                </option>
+              </select>
+            </div>
+            <div style="float: right;">
+              <button
+                mat-icon-button=""
+                type="button"
+                class="mat-focus-indicator mat-tooltip-trigger mat-paginator-navigation-previous mat-icon-button mat-button-base"
+                (click)="previousPage()">
+                <span class="mat-button-wrapper">
+                  <svg viewBox="0 0 24 24" focusable="false" class="mat-paginator-icon">
+                    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
+                  </svg>
+                </span>
+                <span matripple="" class="mat-ripple mat-button-ripple mat-button-ripple-round"></span>
+                <span class="mat-button-focus-overlay"></span>
+              </button>
+              <span>{{currentPage + 1}}</span>
+              <button
+                mat-icon-button=""
+                type="button"
+                class="mat-focus-indicator mat-tooltip-trigger mat-paginator-navigation-next mat-icon-button mat-button-base"
+                (click)="nextPage()">
+                <span class="mat-button-wrapper">
+                  <svg viewBox="0 0 24 24" focusable="false" class="mat-paginator-icon">
+                    <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
+                  </svg>
+                </span>
+                <span matripple="" class="mat-ripple mat-button-ripple mat-button-ripple-round"></span>
+                <span class="mat-button-focus-overlay"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="col-xs-1 col-sm-2"></div>
+</div>
+
+<div class="row">
+  <div class="col-xs-1 col-sm-2"></div>
+  <div class="col-xs-10 col-sm-8">
+
+  </div>
+  <div class="col-xs-1 col-sm-2"></div>
+</div>
+
+

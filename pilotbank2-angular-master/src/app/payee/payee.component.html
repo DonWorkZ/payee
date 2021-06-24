@@ -1,0 +1,45 @@
+<div class="container-fluid">
+  <div class="row" style="margin-top: 0px">
+    <img class="center-block img-responsive" src="../assets/pictures/airplane_login.png">
+  </div>
+</div>
+
+<div class="container">
+  <form [formGroup]="" class="payeeForm">
+    <div class="row">
+      <div class="col-xs-12 col-md-6">
+        <div class="form-group">
+          <label for="payee">Name of Payee</label>
+          <input type="text" id="payee" class="form-control" formControlName="payee">
+        </div>
+        <div class="form-group">
+          <label for="nickname">Nickname(optional)</label>
+          <input type="text" id="nickname" class="form-control" formControlName="nickname">
+        </div>
+        <div class="form-group">
+          <label for="zipcode">Postal Zipcode</label>
+          <input type="number" id="zipcode" class="form-control" formControlName="zipcode">
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <div class="form-group">
+          <label for="accountNumber">Account Number</label>
+          <input type="number" id="accountNumber" class="form-control" formControlName="accountNumber">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 btn-row">
+        <button class="btn btn-default btn-lg" type="button">
+          Cancel
+        </button>
+        <div class="spacer"></div>
+        <button class="btn btn-primary btn-lg" type="submit">
+          Add Payee
+        </button>
+      </div>
+    </div>
+
+  </form>
+</div>

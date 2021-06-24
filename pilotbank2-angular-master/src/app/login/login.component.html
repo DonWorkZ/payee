@@ -1,0 +1,97 @@
+
+<div class="container-fluid">
+  <div class="row" style="margin-top: 0px">
+    <img class="center-block img-responsive" src="../assets/pictures/airplane_login.png">
+  </div>
+</div>
+
+<form [formGroup]="loginForm" (ngSubmit)="login()">
+  <div class="row">
+    <div class="col-xs-2 col-md-4"></div>
+    <div class="col-xs-8 col-md-4">
+      <div class="form-group">
+        <div>
+          <p *ngIf = "resetStatus && !error" class="alert alert-success">
+            <strong>Your Password was successfully updated</strong>
+          </p>
+          <p *ngIf = "!resetStatus && !error && locked" class="alert alert-danger">
+            <strong>Account is locked. Please contact our administration.</strong>
+          </p>
+        </div>
+        <label for="clientNumber">Client Number</label>
+        <input
+          type="text"
+          id="clientNumber"
+          class="form-control"
+          formControlName="clientNumber">
+      </div>
+    </div>
+    <div class="col-xs-2 col-md-4"></div>
+  </div>
+
+  <div class="row ">
+    <div class="col-xs-2 col-md-4"></div>
+    <div class="col-xs-8 col-md-4">
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          class="form-control"
+          formControlName="password">
+      </div>
+      <!--<br>-->
+      <span
+        class="error"
+        *ngIf="error">
+        Client Number or Password is incorrect
+      </span>
+
+      <!--<br>-->
+    </div>
+    <div class="col-xs-2 col-md-4"></div>
+  </div>
+
+
+
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6" style="display: flex; justify-content: center;">
+    <div style="border-right: 2px solid #dcb94f; padding: 15px; width: fit-content;">
+      <a href = "/forgotpassword">
+      <button
+        class="btn btn-default btn-lg btn-block"
+        type="button"
+        style="width: 215px">
+        Forgot Password
+      </button> </a>
+    </div>
+
+    <div style="padding: 15px; width: fit-content;">
+      <button
+        [disabled]="!loginForm.valid"
+        class="btn btn-primary btn-lg btn-block"
+        type="submit" style="width: 215px">
+        Log In
+      </button>
+    </div>
+  </div>
+  <div class="col-md-3"></div>
+</div>
+
+</form>
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <hr>
+  </div>
+  <div class="col-md-4"></div>
+</div>
+
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <button routerLink="../registration" routerLinkActive="active" class="btn btn-primary btn-lg btn-block" style="background-color: #c7a94f" type="button">Register</button>
+  </div>
+  <div class="col-md-4"></div>
+</div>

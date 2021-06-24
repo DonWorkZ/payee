@@ -1,0 +1,201 @@
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+
+    <div class="row">
+      <br>
+      <div class=" col-xs-6 col-sm-6">
+        <span>Select Type of Account</span>
+      </div>
+      <div class=" col-xs-6 col-sm-6">
+        <span (click)="hideModal()" class="close"><img src="../assets/Icons/x-icon.png"></span>
+      </div>
+    </div>
+
+    <hr>
+
+
+    <br>
+    <div class="row" style="margin-right: 20px; margin-left: 20px;">
+      <div class="col-xs-4 col-sm-4">
+        <div class="border">
+
+          <img src="../assets/Icons/checking-icon.png">
+          <span>Chequing Account</span>
+
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+
+          <button
+            class="btn btn-primary btn-lg btn-block"
+            type="submit"
+            (click)="chooseAccount(accountCategory.Checking)">
+            SELECT
+          </button>
+
+        </div>
+      </div>
+      <div class="col-xs-4 col-sm-4">
+        <div class="border">
+
+          <img src="../assets/Icons/credit-card-icon.png">
+          <span>Credit Card</span>
+
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+
+          <button
+            class="btn btn-primary btn-lg btn-block"
+            type="submit"
+            (click)="chooseAccount(accountCategory.Credit)">
+            SELECT
+          </button>
+
+        </div>
+      </div>
+      <div class="col-xs-4 col-sm-4">
+        <div class="border">
+
+          <img src="../assets/Icons/checking-icon.png">
+          <span>Savings Account</span>
+
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+
+          <button
+            class="btn btn-primary btn-lg btn-block"
+            type="submit"
+            (click)="chooseAccount(accountCategory.Savings)">
+            SELECT
+          </button>
+
+        </div>
+      </div>
+    </div>
+
+    <ng-container *ngIf="selectedAccountCategory">
+      <div class="row" style="margin-right: 20px; margin-left: 20px;">
+        <div class="col-xs-4 col-sm-4">
+
+          <ng-container *ngIf="selectedAccountCategory === accountCategory.Checking">
+            <mat-radio-group
+              required
+              aria-label="select an account type"
+              required
+              [(ngModel)]="newSelectedAccountType"
+              name="selectedAccountType"
+              #selectedAccountType="ngModel">
+
+              <!--(change)="onSelectAndFund()"-->
+
+              <mat-radio-button
+                [value]="accountType.FirstClassChecking"
+                aria-label="{{accountType.FirstClassChecking}}">
+                <span>{{accountType.FirstClassChecking}}</span>
+              </mat-radio-button>
+              <br>
+              <mat-radio-button
+                [value]="accountType.Student"
+                aria-label="{{accountType.Student}}">
+                <span>{{accountType.Student}}</span>
+              </mat-radio-button>
+              <br>
+              <mat-radio-button
+                [value]="accountType.Checking"
+                aria-label="{{accountType.Checking}}">
+                <span>Chequing</span>
+              </mat-radio-button>
+
+            </mat-radio-group>
+          </ng-container>
+
+        </div>
+        <div class="col-xs-4 col-sm-4">
+
+          <ng-container *ngIf="selectedAccountCategory === accountCategory.Credit">
+            <mat-radio-group
+              required
+              aria-label="select an account type"
+              required
+              [(ngModel)]="newSelectedAccountType"
+              name="selectedAccountType"
+              #selectedAccountType="ngModel">
+
+              <!--(change)="onSelectAndFund()"-->
+
+              <mat-radio-button
+                [value]="accountType.BusinessVisa"
+                aria-label="{{accountType.BusinessVisa}}">
+                <span>{{accountType.BusinessVisa}}</span>
+              </mat-radio-button>
+              <br>
+              <mat-radio-button
+                [value]="accountType.PremiumVisa"
+                aria-label="{{accountType.PremiumVisa}}">
+                <span>{{accountType.PremiumVisa}}</span>
+              </mat-radio-button>
+
+            </mat-radio-group>
+          </ng-container>
+
+        </div>
+        <div class="col-xs-4 col-sm-4">
+
+          <ng-container *ngIf="selectedAccountCategory === accountCategory.Savings">
+            <mat-radio-group
+              required
+              aria-label="select an account type"
+              required
+              [(ngModel)]="newSelectedAccountType"
+              name="selectedAccountType"
+              #selectedAccountType="ngModel">
+
+              <!--(change)="onSelectAndFund()"-->
+
+              <mat-radio-button
+                [value]="accountType.Savings"
+                aria-label="{{accountType.Savings}}">
+                <span>{{accountType.Savings}}</span>
+              </mat-radio-button>
+
+            </mat-radio-group>
+          </ng-container>
+
+        </div>
+      </div>
+    </ng-container>
+
+    <br>
+
+    <div *ngIf="newSelectedAccountType">
+      <button
+        class="btn btn-primary btn-lg btn-block"
+        (click)="openNewAccount()">
+        Confirm
+      </button>
+    </div>
+
+
+
+  </div>
+
+</div>

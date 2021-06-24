@@ -1,0 +1,29 @@
+
+<div class="container-fluid">
+  <div class="row">
+    <img class="center-block img-responsive" src="../assets/pictures/Progress_Bar_page_1.png">
+  </div>
+</div>
+
+<form id="user-registration-pg1" (ngSubmit)="onSubmit()" #registration_pg1="ngForm">
+
+  <app-account-type (selectedAccountType)="onAccountTypeAdded($event)" [confirmClicked]="confirmed"></app-account-type>
+  <app-login-credentials (loginCredentials)="onLoginCredentialsAdded($event)" [confirmClicked]="confirmed"></app-login-credentials>
+  <app-security-questions (security)="onSecurityQuestionAdded($event)" [confirmClicked]="confirmed"></app-security-questions>
+
+  <div class="row">
+    <div class="col-xs-1 col-sm-3"></div>
+    <div class="col-xs-10 col-sm-6">
+        <div class="submit">
+          <button
+            [disabled]="!registration_pg1.form.valid"
+            class="btn btn-primary btn-lg btn-block"
+            type="submit">
+              Confirm
+          </button>
+        </div>
+    </div>
+    <div class="col-xs-1 col-sm-3"></div>
+  </div>
+
+</form>

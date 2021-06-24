@@ -1,0 +1,55 @@
+<div class="row">
+  <div class="col-xs-1 col-sm-3"></div>
+  <div class="col-xs-10 col-sm-6">
+    <h5>Type of Account</h5>
+  </div>
+  <div class="col-xs-1 col-sm-3"></div>
+</div>
+
+<div class="row">
+  <div class="col-xs-1 col-sm-3"></div>
+  <div class="col-xs-10 col-sm-6">
+      <mat-radio-group
+        required
+        aria-label="select an account type"
+        required
+        [(ngModel)]="newSelectedAccountType"
+        name="selectedAccountType"
+        (change)="onSelectAndFund()"
+        #selectedAccountType="ngModel">
+
+        <mat-radio-button
+          *ngFor="let accountType of accountTypes"
+          [value]="accountType"
+          aria-label="{{accountType}}">
+          <span>{{accountType}}</span>
+        </mat-radio-button>
+
+      </mat-radio-group>
+    <br>
+    <span
+      class="error"
+      *ngIf="selectedAccountType.errors?.required && confirmClicked">
+        Select an account type
+    </span>
+    <!--Section to be deleted starts here-->
+    <br>
+    <label for="fundAccount"><span>Funding Amount</span></label>
+    <input
+      required
+      [(ngModel)]="newFundingAmount"
+      name="fundAccount"
+      #funding="ngModel"
+      type="number"
+      id="fundAccount"
+      class="form-control"
+      (blur)= "onSelectAndFund()">
+    <span
+      class="error"
+      *ngIf="newFundingAmount == 0 && confirmClicked">
+        Funding Amount Required
+    </span>
+    <!--Section to be deleted ends here-->
+  </div>
+  <div class="col-xs-1 col-sm-3"></div>
+</div>

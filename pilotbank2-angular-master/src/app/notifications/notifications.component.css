@@ -1,0 +1,41 @@
+span{
+  font-size: large;
+}
+
+hr{
+  border: solid 0px black;
+  border-top-width: 2px;
+  margin-top: 10px;
+}
+
+h4{
+  padding-inline-start: 40px;
+}
+
+li{
+  margin-bottom: 10px;
+}
+
+ul{
+  margin-bottom: 30px;
+}
+
+circle{
+  filter: unset;
+  stroke: black;
+  stroke-width: 10;
+  fill: transparent;
+}
+
+.arrow {
+  position: absolute;
+  border: solid black;
+  border-width: 0 1px 1px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}

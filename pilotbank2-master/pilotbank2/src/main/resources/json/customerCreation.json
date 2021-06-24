@@ -1,0 +1,30 @@
+{
+  "username": "Dragons5EVA",
+  "firstName": "Hiccup",
+  "lastName": "Haddock",
+  "email": "hiccup.haddock@gmail.com",
+  "phoneNumber": "111-111-1111",
+  "password": "1A2b3c4!",
+  "role": "CUSTOMER",
+  "isActive": true,
+  "sin": "111-111-111",
+  "occupation": "Dragon Trainer",
+  "industry": "Agriculture",
+  "income": 1500.00,
+  "title": "Mr.",
+  "securityQuestion": "What is your favourite food?",
+  "securityAnswer": "pizza",
+  "address": {
+    "addressId": 0,
+    "streetName": "string",
+    "streetNumber": "string",
+    "suiteNumber": "string",
+    "province": "Berk",
+    "city": "Dragontown",
+    "postalCode": "string"
+  },
+  "account": {
+    "balance": 100,
+    "accountType": "CHECKING"
+  }
+}

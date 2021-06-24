@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="col-xs-1 col-sm-2"></div>
+  <div class="col-xs-10 col-sm-8">
+    <hr>
+    <svg viewBox="0 0 300 350" style="float: right; height: 35px">
+      <a href="#">
+        <circle cx="50%" cy="53%" r="110"/>
+        <polyline points="100,140 150,190 200,140"
+                  style="fill:none;stroke:black;stroke-width:10"/>
+        <polyline points="100,200 150,250 200,200"
+                  style="fill:none;stroke:black;stroke-width:10"/>
+      </a>
+    </svg>
+    <h4>My Accounts</h4>
+    <hr class="bottom10">
+  </div>
+  <div class="col-xs-1 col-sm-2"></div>
+</div>
+
+<ng-container
+  [(ngModel)]="accountList"
+  #account="ngModel"
+  *ngFor="let account of accountList"
+  ngDefaultControl>
+
+  <div class="row">
+    <div class="col-xs-1 col-sm-2"></div>
+    <div class="col-xs-10 col-sm-8 hover-color">
+      <div class="col-xs-6 col-sm-6">
+        <a (click)="selectAccount(account)">{{account.accountType}} Account: {{account.accountNumber}}</a>
+      </div>
+      <div class="col-xs-6 col-sm-6">
+        <span>${{account.balance.toFixed(2)}}</span>
+      </div>
+    </div>
+    <div class="col-xs-1 col-sm-2"></div>
+  </div>
+
+</ng-container>
+<div class="row">
+  <div class="col-xs-1 col-sm-2"></div>
+  <div class="col-xs-10 col-sm-8">
+    <hr class="bottom10" style="border: 0; border-top: 1px solid #cdcdcd; ">
+    <a (click)="display()">Open New Account</a>
+  </div>
+  <div class="col-xs-1 col-sm-2"></div>
+</div>
+
+<app-open-new-account-modal></app-open-new-account-modal>

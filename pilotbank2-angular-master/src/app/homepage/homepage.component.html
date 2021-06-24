@@ -1,0 +1,63 @@
+<div style="position: relative">
+  <div class="container-fluid">
+    <div class="row" style="margin-top: 0px; position: absolute;">
+      <img class="center-block img-responsive" src="../assets/pictures/airplane.png">
+    </div>
+
+
+    <div class="row" style="margin-top: 0px;">
+      <div class="col-xs-1 col-sm-1"></div>
+      <svg id="menu">
+        <a (click)="openNav()">
+          <image x="18%" y="12%" href="../assets/Icons/menu.svg" style="height: 34px"/>
+        </a>
+      </svg>
+      <div class="col-xs-10 col-sm-10" style="height: 200px">
+        <div class="col-xs-4 col-sm-4 margin-svg" style="text-align: center">
+          <a href="/transferhomepage">
+            <svg id="svg-icon" style="height: 115px;">
+              <image href="../assets/Icons/transfer.svg" x="48%" y="24%"/>
+            </svg>
+            <svg style="height: 49px;">
+              <text x="140" y="18">Transfer</text>
+            </svg>
+            <br>
+          </a>
+        </div>
+
+        <div class="col-xs-4 col-sm-4 margin-svg" style="text-align: center">
+          <a href="#">
+            <svg id="svg-icon" style="height: 115px;">
+              <image href="../assets/Icons/bill.svg" x="49%" y="24%"/>
+            </svg>
+            <svg style="height: 41px; ">
+              <text x="153" y="10">Pay Bill</text>
+            </svg>
+          </a>
+        </div>
+
+        <div class="col-xs-4 col-sm-4 margin-svg" style="text-align: center">
+          <a href="/summary">
+            <svg id="svg-icon" style="height: 116px;">
+              <image href="../assets/Icons/notification.svg" x="45%" y="24%"/>
+            </svg>
+            <svg style="height: 49px; ">
+              <text x="135" y="17">Summary</text>
+            </svg>
+          </a>
+        </div>
+        <div class="col-xs-1 col-sm-1"></div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<app-notifications></app-notifications>
+
+<app-accounts-list></app-accounts-list>
+
+<br>
+<br>
+<br>
+<br>
+

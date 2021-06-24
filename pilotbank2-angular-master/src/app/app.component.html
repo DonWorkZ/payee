@@ -1,0 +1,41 @@
+<app-header></app-header>
+<div id="mySidenav" class="sidenav">
+  <div class="container" style="padding-left: 0px; height: 200px;">
+    <svg width="250" style="position: absolute">
+      <a href="#">
+        <circle cx="120" cy="65" r="50"/>
+      </a>
+    </svg>
+    <svg style="width: 250px">
+      <svg style="width: 60px;height: 60px;">
+        <a href="javascript:void(0)" class="closebtn" (click)="closeNav()" style="width: 55px;padding: 0;">
+          <image x="80%" y="7%" href="../assets/Icons/menu.svg" style="height: 34px"/>
+        </a>
+      </svg>
+      <a routerLink="/myprofile" routerLinkActive="active">
+        <image x="35%" y="17%" href="../assets/Icons/pilot.svg"/>
+      </a>
+      <a routerLink="/myprofile" routerLinkActive="active">
+        <text x="82" y="133">View Profile ></text>
+      </a>
+      <a href="#">
+        <image x="5%" y="78%" href="../assets/Icons/home.svg" style="height: 30px;"></image>
+      </a>
+      <a href="#">
+        <image x="80%" y="78%" href="../assets/Icons/messaging.svg" style="height: 33px;"/>
+      </a>
+    </svg>
+
+  </div>
+  <a href="/home">My Accounts</a>
+  <a href="/transferhomepage">Transfer</a>
+  <a href="#">Pay Bill</a>
+  <hr>
+  <a href="#">View Bills</a>
+  <a href="#">View Notifications</a>
+</div>
+
+<div id="main">
+  <router-outlet></router-outlet>
+</div>
+

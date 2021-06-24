@@ -1,0 +1,41 @@
+h5{
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.form-control{
+  border-color: #090a0c;
+  border-radius: 0px;
+  border-width: 2px;
+}
+
+span{
+  font-weight: normal;
+}
+
+.row{
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.btn-default{
+  border-color: transparent;
+  border-radius: 0px;
+  width: 100%;
+  text-align: center;
+}
+
+.col-sm-6{
+   padding-right:0px;
+   padding-left: 0px;
+ }
+
+.col-sm-3{
+  padding-right:0px;
+  padding-left: 0px;
+}
+
+.btn-lg{
+  padding: 20px 10px;
+}
+

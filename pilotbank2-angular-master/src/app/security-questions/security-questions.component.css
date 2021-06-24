@@ -1,0 +1,56 @@
+h5{
+  font-weight: bold;
+}
+.btn-default{
+  border-color: #090a0c;
+  border-radius: 0px;
+  border-width: 2px;
+  width: 100%;
+  text-align: center;
+}
+
+.end-caret{
+  text-align: end;
+  width: 50%;
+  float: right;
+}
+
+.form-control{
+  border-color: #090a0c;
+  border-radius: 0px;
+  border-width: 2px;
+}
+
+select {
+  border-color: #090a0c;
+  border-radius: unset;
+  border-width: 2px;
+  width: 100%;
+  text-align: center;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-left: 5px;
+}
+
+.select-wrap
+{
+  border: 1px solid #777;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  padding: 0 5px 5px;
+  width:200px;
+  background-color:#ebebeb;
+}
+
+.select-wrap label
+{
+  font-size:10px;
+  text-transform: uppercase;
+  color: #777;
+  padding: 2px 8px 0;
+}
+
+.error{
+  color: darkred;
+}
+

@@ -1,0 +1,57 @@
+<div class="row">
+  <div class="col-xs-1 col-sm-3"></div>
+  <div class="col-xs-10 col-sm-6">
+    <h5>Security Questions</h5>
+  </div>
+  <div class="col-xs-1 col-sm-3"></div>
+</div>
+
+<div class="row">
+  <div class="col-xs-1 col-sm-3"></div>
+  <div class="col-xs-10 col-sm-6">
+    <select
+      required
+      id="securityQuestion"
+      name="securityQuestion"
+      style="border-radius: 0px"
+      [(ngModel)]="selectedSecurityQuestion1"
+      (change)="addSecurityQuestion()"
+      #securityQuestion="ngModel">
+      <option value="" disabled selected hidden>Select security question</option>
+      <option
+        *ngFor="let question of securityQuestions"
+        value="{{question[0]}}">
+        {{question[0]}}
+      </option>
+    </select>
+    <br>
+    <span class="error"
+          *ngIf="securityQuestion.errors?.required && confirmClicked">
+      Select a Security Question
+    </span>
+
+    <br>
+    <br>
+    <input
+    required
+    name="securityAnswer"
+    type="text"
+    id="securityAnswer"
+    class="form-control"
+    [(ngModel)]="answer"
+    #securityAnswer="ngModel"
+    (blur) = addSecurityQuestion()>
+
+    <span class="error"
+          *ngIf="(securityAnswer.errors?.required && securityAnswer.touched) || (securityAnswer.errors?.required && confirmClicked)">
+      Answer Required
+    </span>
+
+    <br>
+
+  <div class="col-xs-1 col-sm-3"></div>
+</div>
+</div>
+
+
+

@@ -1,0 +1,4 @@
+<app-user-registration-pg1 *ngIf="onPage1" (registration1)=onPage1Completion($event)></app-user-registration-pg1>
+<app-user-registration-pg2 *ngIf="onPage2" (registration2)=onPage2Completion($event) (goBack)="returnToPage1($event)"></app-user-registration-pg2>
+<app-user-registration-pg3 *ngIf="onPage3" (registration3)=onPage3Completion() (goBack)="returnToPage2($event)"></app-user-registration-pg3>
+<app-user-registration-pg4 *ngIf="onPage4" (registration4)=onPage4Completion() (goBack)="returnToPage3($event)"></app-user-registration-pg4>

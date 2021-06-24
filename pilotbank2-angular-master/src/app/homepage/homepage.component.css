@@ -1,0 +1,54 @@
+.container-fluid {
+  background-color: #090a0c;
+  position: relative;
+  height: 200px;
+}
+svg{
+  align-content: center;
+  margin-bottom: -35px;
+  height: 200px;
+}
+
+#svg-icon{
+  filter: invert(66%) sepia(40%) saturate(542%) hue-rotate(7deg) brightness(96%) contrast(87%);
+}
+
+image{
+  height: 60px;
+}
+
+.row{
+  max-height: 200px;
+  width: 100%;
+  height: 200px;
+}
+
+
+img{
+  max-height: 200px;
+}
+
+text{
+  fill: #c7a94f;
+  padding-left: 30px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+#menu{
+  filter: invert(88%) sepia(12%) saturate(745%) hue-rotate(320deg) brightness(115%) contrast(93%);
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  z-index: 1;
+  padding-top: 0px;
+  display: block;
+}
+
+span{
+  color: #c7a94f;
+  padding-left: 30px;
+}
+
+.margin-svg{
+  margin-top: 85px;
+}

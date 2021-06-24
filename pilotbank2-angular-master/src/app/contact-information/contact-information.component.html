@@ -1,0 +1,123 @@
+<div class="row" style="margin-bottom: 14px;">
+  <div class="col-xs-1 col-sm-3"></div>
+  <div class="col-xs-10 col-sm-6">
+    <h5>Contact Information</h5>
+  </div>
+  <div class="col-xs-1 col-sm-3"></div>
+</div>
+
+<div class="row" style="margin-top: 14px;">
+  <div class="col-xs-1 col-sm-3"></div>
+  <div class="form-group">
+    <div class="col-xs-5 col-sm-3" style="border-right: 2px solid #dcb94f; padding-bottom: 20px">
+      <label for="title"><span>Title</span></label>
+      <select
+        required
+        id="title"
+        name="title"
+        style="border-radius: 0px"
+        [(ngModel)]="newContactInfo.titleSelected"
+        (change)="addContactInformation()"
+        #title="ngModel">
+        <option value="" disabled selected hidden></option>
+        <option
+          *ngFor="let title of titles"
+          value="{{title}}">
+          {{title}}
+        </option>
+      </select>
+      <br>
+      <span class="error"
+            *ngIf="title.errors?.required && confirmClicked">
+      Select a Title
+      </span>
+
+      <br>
+
+      <label for="firstName"><span>First Name</span></label>
+      <input
+        required
+        [(ngModel)]="newContactInfo.firstName"
+        name="firstName"
+        #fName="ngModel"
+        type="text"
+        id="firstName"
+        class="form-control"
+        (blur)= "addContactInformation()">
+      <span
+        class="error"
+        *ngIf="(fName.errors?.required && fName.touched) || (fName.errors?.required && confirmClicked)">
+        First Name Required
+      </span>
+
+      <br>
+
+      <label for="lastName"><span>Last Name</span></label>
+      <input
+        required
+        [(ngModel)]="newContactInfo.lastName"
+        name="lastName"
+        #lName="ngModel"
+        type="text"
+        id="lastName"
+        class="form-control"
+        (blur)= "addContactInformation()">
+      <span
+        class="error"
+        *ngIf="(lName.errors?.required && lName.touched) || (lName.errors?.required && confirmClicked)">
+        Last Name Required
+      </span>
+
+    </div>
+
+    <div class="col-xs-5 col-sm-3">
+      <label for="phoneNumber"><span>Phone Number</span></label>
+      <input
+        required
+        pattern="^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$"
+        [(ngModel)]="newContactInfo.phoneNumber"
+        name="phoneNumber"
+        #phoneNumber="ngModel"
+        type="text"
+        id="phoneNumber"
+        class="form-control"
+        (blur)= "addContactInformation()">
+      <span
+        class="error"
+        *ngIf="(phoneNumber.errors?.required && phoneNumber.touched) || (phoneNumber.errors?.required && confirmClicked)">
+        Phone Number Required
+      </span>
+      <span
+        class="error"
+        *ngIf="phoneNumber.errors?.pattern && phoneNumber.touched">
+        Field Invalid
+      </span>
+
+      <br>
+
+      <label for="sin"><span>SIN</span></label>
+      <input
+        required
+        pattern="^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{3})$"
+        [(ngModel)]="newContactInfo.SIN"
+        name="SIN"
+        #sin="ngModel"
+        type="text"
+        id="sin"
+        class="form-control"
+        (blur)= "addContactInformation()">
+      <span
+        class="error"
+        *ngIf="(sin.errors?.required && sin.touched) || (sin.errors?.required && confirmClicked)">
+        SIN Required
+      </span>
+      <span
+        class="error"
+        *ngIf="sin.errors?.pattern && sin.touched">
+        Field Invalid
+      </span>
+    </div>
+  </div>
+
+  <div class="col-xs-1 col-sm-3"></div>
+</div>

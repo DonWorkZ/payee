@@ -1,0 +1,80 @@
+.sidenav {
+  margin-top: 60px;
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #111; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 8px 8px 8px 4px;
+  text-decoration: none;
+  font-size: 16px;
+  color: #cecece;;
+  display: block;
+  transition: 0.3s;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  font-size: 36px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+  transition: margin-left .5s;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.container{
+  background-color: #c7a94f;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 250px;
+  margin-bottom: 8px;
+}
+
+svg{
+  filter: invert(88%) sepia(12%) saturate(745%) hue-rotate(320deg) brightness(115%) contrast(93%);
+  align-content: center;
+  height: 195px;
+}
+
+circle{
+  filter: unset;
+  stroke: black;
+  stroke-width: 2;
+  fill: transparent;
+}
+
+image{
+  height: 65px;
+}
+
+text{
+  fill: black;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: small;
+  font-weight: bold;
+}
+
+hr{
+  margin-top: 3px;
+  margin-bottom: 10px;
+}
+
+

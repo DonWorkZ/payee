@@ -1,0 +1,145 @@
+
+<div class="row">
+  <div class="col-xs-1 col-sm-3"></div>
+  <div class="col-xs-10 col-sm-6">
+    <h5>Mailing Information</h5>
+  </div>
+  <div class="col-xs-1 col-sm-3"></div>
+</div>
+
+<div class="row">
+  <div class="col-xs-1 col-sm-3"></div>
+  <div class="form-group">
+    <div class="col-xs-5 col-sm-3" style="border-right: 2px solid #dcb94f; padding-bottom: 20px">
+
+      <label for="stName"><span>Street Name</span></label>
+      <input
+        required
+        [(ngModel)]="newMailingInfo.streetName"
+        name="stName"
+        #stName="ngModel"
+        type="text"
+        id="stName"
+        class="form-control"
+        (blur)= "addMailingInformation()">
+
+      <span
+        class="error"
+        *ngIf="(stName.errors?.required && stName.touched) || (stName.errors?.required && confirmClicked)">
+        Street Name Required
+      </span>
+
+      <br>
+
+      <label for="stNumber"><span>Street Number</span></label>
+      <input
+        required
+        [(ngModel)]="newMailingInfo.streetNumber"
+        name="stNumber"
+        #stNumber="ngModel"
+        type="text"
+        id="stNumber"
+        class="form-control"
+        (blur)= "addMailingInformation()">
+
+      <span
+        class="error"
+        *ngIf="(stNumber.errors?.required && stNumber.touched) || (stNumber.errors?.required && confirmClicked)">
+        Street Number Required
+      </span>
+
+      <br>
+
+      <label for="suitAppUnitNumber"><span>Suite/App/Unit Number</span></label>
+      <input
+        required
+        [(ngModel)]="newMailingInfo.suitAppUnitNumber"
+        name="suitAppUnitNumber"
+        #suitNumber="ngModel"
+        type="text"
+        id="suitAppUnitNumber"
+        class="form-control"
+        (blur)= "addMailingInformation()">
+
+      <span
+        class="error"
+        *ngIf="(suitNumber.errors?.required && suitNumber.touched) || (suitNumber.errors?.required && confirmClicked)">
+        Suite/App/Unit Number Required
+      </span>
+
+    </div>
+
+    <div class="col-xs-5 col-sm-3">
+      <label for="province"><span>Province</span></label>
+      <select
+        required
+        id="province"
+        name="province"
+        style="border-radius: 0px"
+        [(ngModel)]="newMailingInfo.province"
+        (change)="addMailingInformation()"
+        #province="ngModel">
+        <option value="" disabled selected hidden></option>
+        <option
+          *ngFor="let province of provinces"
+          value="{{province}}">
+          {{province}}
+        </option>
+      </select>
+      <br>
+      <span
+        class="error"
+        *ngIf="province.errors?.required && confirmClicked">
+        Province Required
+      </span>
+
+      <br>
+
+      <label for="city"><span>City</span></label>
+      <select
+        required
+        id="city"
+        name="city"
+        style="border-radius: 0px"
+        [(ngModel)]="newMailingInfo.cityTown"
+        (change)="addMailingInformation()"
+        #city="ngModel">
+        <option value="" disabled selected hidden></option>
+        <option
+          *ngFor="let city of cities"
+          value="{{city}}">
+          {{city}}
+        </option>
+      </select>
+      <br>
+      <span
+        class="error"
+        *ngIf="city.errors?.required && confirmClicked">
+        City Required
+      </span>
+
+      <br>
+
+      <label for="postalCode"><span>Postal Code</span></label>
+      <input
+        required
+        pattern="^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$"
+        [(ngModel)]="newMailingInfo.postalCode"
+        name="postalCode"
+        #postalCode="ngModel"
+        type="text"
+        id="postalCode"
+        class="form-control"
+        (blur)= "addMailingInformation()">
+      <span
+        class="error"
+        *ngIf="(postalCode.errors?.required && postalCode.touched) || (postalCode.errors?.required && confirmClicked)">
+        Postal Code Required
+      </span>
+      <span *ngIf="postalCode.errors?.pattern && postalCode.touched">Field Invalid</span>
+
+    </div>
+  </div>
+
+  <div class="col-xs-1 col-sm-3"></div>
+</div>

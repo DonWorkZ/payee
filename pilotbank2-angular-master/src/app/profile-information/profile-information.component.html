@@ -1,0 +1,278 @@
+<div class="row">
+  <div class="col-xs-1 col-sm-2"></div>
+  <div class="col-xs-10 col-sm-8">
+    <hr style="margin-top: 25px;">
+    <svg viewBox="0 0 300 350" style="float: right; height: 35px">
+      <a href="#">
+        <circle cx="50%" cy="53%" r="110"/>
+        <polyline points="100,140 150,190 200,140"
+                  style="fill:none;stroke:black;stroke-width:10"/>
+        <polyline points="100,200 150,250 200,200"
+                  style="fill:none;stroke:black;stroke-width:10"/>
+      </a>
+    </svg>
+    <h4>My Information</h4>
+    <hr class="bottom10">
+  </div>
+  <div class="col-xs-1 col-sm-2"></div>
+</div>
+
+
+
+<div class="row">
+  <div class="col-xs-1 col-sm-2"></div>
+  <div class="col-xs-10 col-sm-8">
+    <span class="sub-heading">Contact</span>
+  </div>
+  <div class="col-xs-1 col-sm-2"></div>
+</div>
+
+<div class="row">
+  <div class="col-xs-1 col-sm-2"></div>
+  <div class="col-xs-10 col-sm-8 subitem d-flex justify-content-between">
+    <span>
+      {{user.firstName}} {{user.lastName}}
+    </span>
+    <img (click)="contactEdit=true" src="../assets/Icons/pencil2.png" style="width: 15px; cursor: pointer;"/>
+  </div>
+  <div class="col-xs-1 col-sm-2"></div>
+</div>
+
+<div class="row">
+  <div class="col-xs-1 col-sm-2"></div>
+
+  <div *ngIf="contactEdit===true; else emailInfo" class="col-xs-10 col-sm-8 subitem inline">
+    <span class="label-profile">Email</span>
+    <input
+      required
+      [(ngModel)]="updatedContactInfo.email"
+      name="email"
+      #email="ngModel"
+      type="text"
+      id="email"
+      class="form-control">
+
+  </div>
+  <ng-template #emailInfo>
+    <div class="col-xs-10 col-sm-8 subitem">
+      {{user.email}}
+    </div>
+  </ng-template>
+  <div class="col-xs-1 col-sm-2"></div>
+</div>
+
+<div class="row">
+  <div class="col-xs-1 col-sm-2"></div>
+  <div *ngIf="contactEdit===true; else phoneInfo" class="col-xs-10 col-sm-8 subitem inline">
+    <span class="label-profile">Phone Number</span>
+    <input
+      required
+      [(ngModel)]="updatedContactInfo.phoneNumber"
+      name="phone"
+      #phone="ngModel"
+      type="text"
+      id="phone"
+      class="form-control">
+  </div>
+  <ng-template #phoneInfo>
+    <div class="col-xs-10 col-sm-8 subitem">
+      {{user.phoneNumber}}
+    </div>
+  </ng-template>
+  <div class="col-xs-1 col-sm-2"></div>
+</div>
+
+<div class="row">
+  <div class="col-xs-1 col-sm-2"></div>
+  <div *ngIf="contactEdit===true;" class="col-xs-10 col-sm-8 subitem">
+    <button
+      class="btn btn-default btn-sm btn-block"
+      type="button"
+      (click)="contactEdit=false"
+      style="float: left">
+      Cancel
+    </button>
+    <button
+      class="btn btn-primary btn-sm btn-block"
+      type="button"
+      (click)="updateContactInfo()"
+      style="float: right">
+      Confirm
+    </button>
+  </div>
+  <div class="col-xs-1 col-sm-2"></div>
+</div>
+
+<div class="row">
+  <div class="col-xs-1 col-sm-2"></div>
+  <div class="col-xs-10 col-sm-8">
+    <hr style="margin: 15px 35px 12px; border-color: #aaaaaa">
+    <span class="sub-heading">Address</span>
+  </div>
+  <div class="col-xs-1 col-sm-2"></div>
+</div>
+
+<ng-container *ngIf="addressEdit===true; else streetInfo">
+
+  <div class="row" style="margin-top: 15px;">
+    <div class="col-xs-1 col-sm-2"></div>
+    <div class="col-xs-10 col-sm-8 subitem inline">
+      <span class="label-profile">Street Number</span>
+      <input
+        required
+        [(ngModel)]="updatedAddressInfo.address.streetNumber"
+        name="streetNumber"
+        #streetNumber="ngModel"
+        type="text"
+        id="streetNumber"
+        class="form-control">
+    </div>
+    <div class="col-xs-1 col-sm-2">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-1 col-sm-2"></div>
+    <div class="col-xs-10 col-sm-8 subitem inline">
+      <span class="label-profile">Street Name</span>
+      <input
+        required
+        [(ngModel)]="updatedAddressInfo.address.streetName"
+        name="streetName"
+        #streetName="ngModel"
+        type="text"
+        id="streetName"
+        class="form-control">
+    </div>
+    <div class="col-xs-1 col-sm-2"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-1 col-sm-2"></div>
+    <div class="col-xs-10 col-sm-8 subitem inline">
+      <span class="label-profile" style="padding-top: 5px;">Suite/App/Unit Number</span>
+      <input
+        required
+        [(ngModel)]="updatedAddressInfo.address.suitAppUnitNumber"
+        name="suiteNumber"
+        #suiteNumber="ngModel"
+        type="text"
+        id="suiteNumber"
+        class="form-control">
+    </div>
+    <div class="col-xs-1 col-sm-2"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-1 col-sm-2"></div>
+    <div class="col-xs-10 col-sm-8 subitem inline">
+      <span class="label-profile">City</span>
+      <select
+        required
+        id="city"
+        name="city"
+        style="border-radius: 0px"
+        [(ngModel)]="updatedAddressInfo.address.city"
+        #city="ngModel">
+        <!--(change)="addMailingInformation()"-->
+        <option value="" disabled selected hidden></option>
+        <option
+          *ngFor="let city of cities"
+          value="{{city}}">
+          {{city}}
+        </option>
+      </select>
+    </div>
+    <div class="col-xs-1 col-sm-2"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-1 col-sm-2"></div>
+    <div class="col-xs-10 col-sm-8 subitem inline">
+      <span class="label-profile">Province</span>
+      <select
+        required
+        id="province"
+        name="province"
+        style="border-radius: 0px; margin-top: 5px;"
+        [(ngModel)]="updatedAddressInfo.address.province"
+        #province="ngModel">
+        <!--(change)="addMailingInformation()"-->
+        <option value="" disabled selected hidden></option>
+        <option
+          *ngFor="let province of provinces"
+          value="{{province}}">
+          {{province}}
+        </option>
+      </select>
+    </div>
+    <div class="col-xs-1 col-sm-2"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-1 col-sm-2"></div>
+    <div class="col-xs-10 col-sm-8 subitem inline">
+      <span class="label-profile">Postal Code</span>
+      <input
+        required
+        [(ngModel)]="updatedAddressInfo.address.postalCode"
+        name="postalCode"
+        #postalCode="ngModel"
+        type="text"
+        id="postalCode"
+        class="form-control">
+    </div>
+    <div class="col-xs-1 col-sm-2"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-1 col-sm-2"></div>
+    <div class="col-xs-10 col-sm-8 subitem">
+      <button
+        class="btn btn-default btn-sm btn-block"
+        type="button"
+        (click)="addressEdit=false"
+        style="float: left">
+        Cancel
+      </button>
+      <button
+        class="btn btn-primary btn-sm btn-block"
+        type="button"
+        (click)="updateAddressInfo()"
+        style="float: right">
+        Confirm
+      </button>
+    </div>
+    <div class="col-xs-1 col-sm-2"></div>
+  </div>
+
+</ng-container>
+
+<ng-template #streetInfo>
+  <div class="row">
+    <div class="col-xs-1 col-sm-2"></div>
+    <div class="col-xs-10 col-sm-8 subitem d-flex justify-content-between" *ngIf="user.addressList[0].suiteNumber; else noSuite">
+      <span>
+        {{user.addressList[0].streetNumber}} {{user.addressList[0].streetName}}, #{{user.addressList[0].suiteNumber}}
+      </span>
+      <img (click)="addressEdit=true" src="../assets/Icons/pencil2.png" style="width: 15px; cursor: pointer;"/>
+    </div>
+    <ng-template #noSuite>
+      <div class="col-xs-10 col-sm-8 subitem">
+        {{user.addressList[0].streetNumber}} {{user.addressList[0].streetName}}
+      </div>
+    </ng-template>
+    <div class="col-xs-1 col-sm-2"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-1 col-sm-2"></div>
+    <div class="col-xs-10 col-sm-8 subitem">
+      {{user.addressList[0].city}}, {{user.addressList[0].province}} {{user.addressList[0].postalCode}}
+    </div>
+    <div class="col-xs-1 col-sm-2"></div>
+  </div>
+
+</ng-template>
+
+<br>
